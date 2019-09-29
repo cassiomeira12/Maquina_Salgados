@@ -1,0 +1,76 @@
+--------------------------------------------------------------------------------------
+Timing Analyzer Summary
+--------------------------------------------------------------------------------------
+
+Type           : Worst-case tsu
+Slack          : N/A
+Required Time  : None
+Actual Time    : 10.356 ns
+From           : confirmar_salgado
+To             : proximo_estado.estado_reiniciar
+From Clock     : --
+To Clock       : pseudo_clock
+Failed Paths   : 0
+
+Type           : Worst-case tco
+Slack          : N/A
+Required Time  : None
+Actual Time    : 10.895 ns
+From           : display_dinheiro_centena[4]~reg0
+To             : display_dinheiro_centena[4]
+From Clock     : pseudo_clock
+To Clock       : --
+Failed Paths   : 0
+
+Type           : Worst-case th
+Slack          : N/A
+Required Time  : None
+Actual Time    : 0.360 ns
+From           : moedas[1]
+To             : saldo_dinheiro[5]~reg0
+From Clock     : --
+To Clock       : confirmar_moeda
+Failed Paths   : 0
+
+Type           : Clock Setup: 'pseudo_clock'
+Slack          : N/A
+Required Time  : None
+Actual Time    : 8.86 MHz ( period = 112.817 ns )
+From           : troco[7]
+To             : display_dinheiro_centena[6]~reg0
+From Clock     : pseudo_clock
+To Clock       : pseudo_clock
+Failed Paths   : 0
+
+Type           : Clock Setup: 'confirmar_moeda'
+Slack          : N/A
+Required Time  : None
+Actual Time    : 244.20 MHz ( period = 4.095 ns )
+From           : saldo_dinheiro[1]~reg0
+To             : saldo_dinheiro[7]~reg0
+From Clock     : confirmar_moeda
+To Clock       : confirmar_moeda
+Failed Paths   : 0
+
+Type           : Clock Setup: 'contador'
+Slack          : N/A
+Required Time  : None
+Actual Time    : Restricted to 405.02 MHz ( period = 2.469 ns )
+From           : salgado_selecionado[1]
+To             : salgado_selecionado[2]
+From Clock     : contador
+To Clock       : contador
+Failed Paths   : 0
+
+Type           : Total number of failed paths
+Slack          : 
+Required Time  : 
+Actual Time    : 
+From           : 
+To             : 
+From Clock     : 
+To Clock       : 
+Failed Paths   : 0
+
+--------------------------------------------------------------------------------------
+

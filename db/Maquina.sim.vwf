@@ -1,0 +1,2725 @@
+/*
+WARNING: Do NOT edit the input and output ports in this file in a text
+editor if you plan to continue editing the block that represents it in
+the Block Editor! File corruption is VERY likely to occur.
+*/
+
+/*
+Copyright (C) 1991-2013 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+*/
+
+HEADER
+{
+	VERSION = 1;
+	TIME_UNIT = ns;
+	DATA_OFFSET = 0.0;
+	DATA_DURATION = 1000.0;
+	SIMULATION_TIME = 1000.0;
+	GRID_PHASE = 0.0;
+	GRID_PERIOD = 10.0;
+	GRID_DUTY_CYCLE = 50;
+}
+
+SIGNAL("iniciar")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = INPUT;
+	PARENT = "";
+}
+
+SIGNAL("clk")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = INPUT;
+	PARENT = "";
+}
+
+SIGNAL("estado")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = BUS;
+	WIDTH = 3;
+	LSB_INDEX = 0;
+	DIRECTION = OUTPUT;
+	PARENT = "";
+}
+
+SIGNAL("estado[2]")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "estado";
+}
+
+SIGNAL("estado[1]")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "estado";
+}
+
+SIGNAL("estado[0]")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "estado";
+}
+
+SIGNAL("confirmar_salgado")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = INPUT;
+	PARENT = "";
+}
+
+SIGNAL("contador")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = INPUT;
+	PARENT = "";
+}
+
+SIGNAL("display_salgado")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = BUS;
+	WIDTH = 7;
+	LSB_INDEX = 0;
+	DIRECTION = OUTPUT;
+	PARENT = "";
+}
+
+SIGNAL("display_salgado[6]")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "display_salgado";
+}
+
+SIGNAL("display_salgado[5]")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "display_salgado";
+}
+
+SIGNAL("display_salgado[4]")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "display_salgado";
+}
+
+SIGNAL("display_salgado[3]")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "display_salgado";
+}
+
+SIGNAL("display_salgado[2]")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "display_salgado";
+}
+
+SIGNAL("display_salgado[1]")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "display_salgado";
+}
+
+SIGNAL("display_salgado[0]")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "display_salgado";
+}
+
+SIGNAL("moedas")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = BUS;
+	WIDTH = 2;
+	LSB_INDEX = 0;
+	DIRECTION = INPUT;
+	PARENT = "";
+}
+
+SIGNAL("moedas[1]")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = INPUT;
+	PARENT = "moedas";
+}
+
+SIGNAL("moedas[0]")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = INPUT;
+	PARENT = "moedas";
+}
+
+SIGNAL("saldo_dinheiro")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = BUS;
+	WIDTH = 10;
+	LSB_INDEX = 0;
+	DIRECTION = OUTPUT;
+	PARENT = "";
+}
+
+SIGNAL("saldo_dinheiro[9]")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "saldo_dinheiro";
+}
+
+SIGNAL("saldo_dinheiro[8]")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "saldo_dinheiro";
+}
+
+SIGNAL("saldo_dinheiro[7]")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "saldo_dinheiro";
+}
+
+SIGNAL("saldo_dinheiro[6]")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "saldo_dinheiro";
+}
+
+SIGNAL("saldo_dinheiro[5]")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "saldo_dinheiro";
+}
+
+SIGNAL("saldo_dinheiro[4]")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "saldo_dinheiro";
+}
+
+SIGNAL("saldo_dinheiro[3]")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "saldo_dinheiro";
+}
+
+SIGNAL("saldo_dinheiro[2]")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "saldo_dinheiro";
+}
+
+SIGNAL("saldo_dinheiro[1]")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "saldo_dinheiro";
+}
+
+SIGNAL("saldo_dinheiro[0]")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "saldo_dinheiro";
+}
+
+SIGNAL("confirmar_moeda")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = INPUT;
+	PARENT = "";
+}
+
+SIGNAL("valor_salgado")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = BUS;
+	WIDTH = 10;
+	LSB_INDEX = 0;
+	DIRECTION = OUTPUT;
+	PARENT = "";
+}
+
+SIGNAL("valor_salgado[9]")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "valor_salgado";
+}
+
+SIGNAL("valor_salgado[8]")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "valor_salgado";
+}
+
+SIGNAL("valor_salgado[7]")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "valor_salgado";
+}
+
+SIGNAL("valor_salgado[6]")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "valor_salgado";
+}
+
+SIGNAL("valor_salgado[5]")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "valor_salgado";
+}
+
+SIGNAL("valor_salgado[4]")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "valor_salgado";
+}
+
+SIGNAL("valor_salgado[3]")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "valor_salgado";
+}
+
+SIGNAL("valor_salgado[2]")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "valor_salgado";
+}
+
+SIGNAL("valor_salgado[1]")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "valor_salgado";
+}
+
+SIGNAL("valor_salgado[0]")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "valor_salgado";
+}
+
+SIGNAL("display_dinheiro_centena")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = BUS;
+	WIDTH = 7;
+	LSB_INDEX = 0;
+	DIRECTION = OUTPUT;
+	PARENT = "";
+}
+
+SIGNAL("display_dinheiro_centena[6]")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "display_dinheiro_centena";
+}
+
+SIGNAL("display_dinheiro_centena[5]")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "display_dinheiro_centena";
+}
+
+SIGNAL("display_dinheiro_centena[4]")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "display_dinheiro_centena";
+}
+
+SIGNAL("display_dinheiro_centena[3]")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "display_dinheiro_centena";
+}
+
+SIGNAL("display_dinheiro_centena[2]")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "display_dinheiro_centena";
+}
+
+SIGNAL("display_dinheiro_centena[1]")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "display_dinheiro_centena";
+}
+
+SIGNAL("display_dinheiro_centena[0]")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "display_dinheiro_centena";
+}
+
+SIGNAL("display_dinheiro_dezena")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = BUS;
+	WIDTH = 7;
+	LSB_INDEX = 0;
+	DIRECTION = OUTPUT;
+	PARENT = "";
+}
+
+SIGNAL("display_dinheiro_dezena[6]")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "display_dinheiro_dezena";
+}
+
+SIGNAL("display_dinheiro_dezena[5]")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "display_dinheiro_dezena";
+}
+
+SIGNAL("display_dinheiro_dezena[4]")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "display_dinheiro_dezena";
+}
+
+SIGNAL("display_dinheiro_dezena[3]")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "display_dinheiro_dezena";
+}
+
+SIGNAL("display_dinheiro_dezena[2]")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "display_dinheiro_dezena";
+}
+
+SIGNAL("display_dinheiro_dezena[1]")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "display_dinheiro_dezena";
+}
+
+SIGNAL("display_dinheiro_dezena[0]")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "display_dinheiro_dezena";
+}
+
+SIGNAL("display_dinheiro_unidade")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = BUS;
+	WIDTH = 7;
+	LSB_INDEX = 0;
+	DIRECTION = OUTPUT;
+	PARENT = "";
+}
+
+SIGNAL("display_dinheiro_unidade[6]")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "display_dinheiro_unidade";
+}
+
+SIGNAL("display_dinheiro_unidade[5]")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "display_dinheiro_unidade";
+}
+
+SIGNAL("display_dinheiro_unidade[4]")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "display_dinheiro_unidade";
+}
+
+SIGNAL("display_dinheiro_unidade[3]")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "display_dinheiro_unidade";
+}
+
+SIGNAL("display_dinheiro_unidade[2]")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "display_dinheiro_unidade";
+}
+
+SIGNAL("display_dinheiro_unidade[1]")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "display_dinheiro_unidade";
+}
+
+SIGNAL("display_dinheiro_unidade[0]")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "display_dinheiro_unidade";
+}
+
+SIGNAL("led_verde")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "";
+}
+
+SIGNAL("led_vermelho")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "";
+}
+
+SIGNAL("reset")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = INPUT;
+	PARENT = "";
+}
+
+SIGNAL("liberar")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = INPUT;
+	PARENT = "";
+}
+
+SIGNAL("salgado_selecionado")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = BUS;
+	WIDTH = 3;
+	LSB_INDEX = 0;
+	DIRECTION = BURIED;
+	PARENT = "";
+}
+
+SIGNAL("salgado_selecionado[2]")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = BURIED;
+	PARENT = "salgado_selecionado";
+}
+
+SIGNAL("salgado_selecionado[1]")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = BURIED;
+	PARENT = "salgado_selecionado";
+}
+
+SIGNAL("salgado_selecionado[0]")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = BURIED;
+	PARENT = "salgado_selecionado";
+}
+
+SIGNAL("troco")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = BUS;
+	WIDTH = 10;
+	LSB_INDEX = 0;
+	DIRECTION = BURIED;
+	PARENT = "";
+}
+
+SIGNAL("troco[9]")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = BURIED;
+	PARENT = "troco";
+}
+
+SIGNAL("troco[8]")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = BURIED;
+	PARENT = "troco";
+}
+
+SIGNAL("troco[7]")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = BURIED;
+	PARENT = "troco";
+}
+
+SIGNAL("troco[6]")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = BURIED;
+	PARENT = "troco";
+}
+
+SIGNAL("troco[5]")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = BURIED;
+	PARENT = "troco";
+}
+
+SIGNAL("troco[4]")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = BURIED;
+	PARENT = "troco";
+}
+
+SIGNAL("troco[3]")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = BURIED;
+	PARENT = "troco";
+}
+
+SIGNAL("troco[2]")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = BURIED;
+	PARENT = "troco";
+}
+
+SIGNAL("troco[1]")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = BURIED;
+	PARENT = "troco";
+}
+
+SIGNAL("troco[0]")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = BURIED;
+	PARENT = "troco";
+}
+
+TRANSITION_LIST("iniciar")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 20.0;
+		LEVEL 1 FOR 10.0;
+		LEVEL 0 FOR 830.0;
+		LEVEL 1 FOR 10.0;
+		LEVEL 0 FOR 70.0;
+		LEVEL 1 FOR 10.0;
+		LEVEL 0 FOR 50.0;
+	}
+}
+
+TRANSITION_LIST("clk")
+{
+	NODE
+	{
+		REPEAT = 1;
+		NODE
+		{
+			REPEAT = 50;
+			LEVEL 0 FOR 10.0;
+			LEVEL 1 FOR 10.0;
+		}
+	}
+}
+
+TRANSITION_LIST("estado[2]")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 439.526;
+		LEVEL 1 FOR 440.0;
+		LEVEL 0 FOR 120.474;
+	}
+}
+
+TRANSITION_LIST("estado[1]")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 78.485;
+		LEVEL 1 FOR 360.0;
+		LEVEL 0 FOR 560.0;
+		LEVEL 1 FOR 1.515;
+	}
+}
+
+TRANSITION_LIST("estado[0]")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 19.548;
+		LEVEL 1 FOR 60.0;
+		LEVEL 0 FOR 320.0;
+		LEVEL 1 FOR 40.0;
+		LEVEL 0 FOR 360.0;
+		LEVEL 1 FOR 80.0;
+		LEVEL 0 FOR 40.0;
+		LEVEL 1 FOR 80.0;
+		LEVEL 0 FOR 0.452;
+	}
+}
+
+TRANSITION_LIST("confirmar_salgado")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 1 FOR 340.0;
+		LEVEL 0 FOR 10.0;
+		LEVEL 1 FOR 650.0;
+	}
+}
+
+TRANSITION_LIST("contador")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 1 FOR 100.0;
+		LEVEL 0 FOR 10.0;
+		LEVEL 1 FOR 30.0;
+		LEVEL 0 FOR 10.0;
+		LEVEL 1 FOR 30.0;
+		LEVEL 0 FOR 10.0;
+		LEVEL 1 FOR 30.0;
+		LEVEL 0 FOR 10.0;
+		LEVEL 1 FOR 30.0;
+		LEVEL 0 FOR 10.0;
+		LEVEL 1 FOR 730.0;
+	}
+}
+
+TRANSITION_LIST("display_salgado[6]")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 18.48;
+		LEVEL 1 FOR 100.0;
+		LEVEL 0 FOR 160.0;
+		LEVEL 1 FOR 721.52;
+	}
+}
+
+TRANSITION_LIST("display_salgado[5]")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 18.29;
+		LEVEL 1 FOR 180.0;
+		LEVEL 0 FOR 80.0;
+		LEVEL 1 FOR 600.0;
+		LEVEL 0 FOR 40.0;
+		LEVEL 1 FOR 81.71;
+	}
+}
+
+TRANSITION_LIST("display_salgado[4]")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 17.529;
+		LEVEL 1 FOR 100.0;
+		LEVEL 0 FOR 40.0;
+		LEVEL 1 FOR 720.0;
+		LEVEL 0 FOR 40.0;
+		LEVEL 1 FOR 82.471;
+	}
+}
+
+TRANSITION_LIST("display_salgado[3]")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 17.882;
+		LEVEL 1 FOR 100.0;
+		LEVEL 0 FOR 80.0;
+		LEVEL 1 FOR 40.0;
+		LEVEL 0 FOR 40.0;
+		LEVEL 1 FOR 600.0;
+		LEVEL 0 FOR 40.0;
+		LEVEL 1 FOR 82.118;
+	}
+}
+
+TRANSITION_LIST("display_salgado[2]")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 18.777;
+		LEVEL 1 FOR 60.0;
+		LEVEL 0 FOR 40.0;
+		LEVEL 1 FOR 40.0;
+		LEVEL 0 FOR 760.0;
+		LEVEL 1 FOR 80.0;
+		LEVEL 0 FOR 1.223;
+	}
+}
+
+TRANSITION_LIST("display_salgado[1]")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 18.777;
+		LEVEL 1 FOR 60.0;
+		LEVEL 0 FOR 160.0;
+		LEVEL 1 FOR 40.0;
+		LEVEL 0 FOR 640.0;
+		LEVEL 1 FOR 80.0;
+		LEVEL 0 FOR 1.223;
+	}
+}
+
+TRANSITION_LIST("display_salgado[0]")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 18.235;
+		LEVEL 1 FOR 100.0;
+		LEVEL 0 FOR 80.0;
+		LEVEL 1 FOR 40.0;
+		LEVEL 0 FOR 40.0;
+		LEVEL 1 FOR 600.0;
+		LEVEL 0 FOR 40.0;
+		LEVEL 1 FOR 81.765;
+	}
+}
+
+TRANSITION_LIST("moedas[1]")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 550.0;
+		LEVEL 1 FOR 30.0;
+		LEVEL 0 FOR 50.0;
+		LEVEL 1 FOR 30.0;
+		LEVEL 0 FOR 50.0;
+		LEVEL 1 FOR 30.0;
+		LEVEL 0 FOR 260.0;
+	}
+}
+
+TRANSITION_LIST("moedas[0]")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 550.0;
+		LEVEL 1 FOR 30.0;
+		LEVEL 0 FOR 50.0;
+		LEVEL 1 FOR 30.0;
+		LEVEL 0 FOR 340.0;
+	}
+}
+
+TRANSITION_LIST("saldo_dinheiro[9]")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 1000.0;
+	}
+}
+
+TRANSITION_LIST("saldo_dinheiro[8]")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 1000.0;
+	}
+}
+
+TRANSITION_LIST("saldo_dinheiro[7]")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 648.862;
+		LEVEL 1 FOR 251.733;
+		LEVEL 0 FOR 99.405;
+	}
+}
+
+TRANSITION_LIST("saldo_dinheiro[6]")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 569.195;
+		LEVEL 1 FOR 331.469;
+		LEVEL 0 FOR 99.336;
+	}
+}
+
+TRANSITION_LIST("saldo_dinheiro[5]")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 569.466;
+		LEVEL 1 FOR 80.0;
+		LEVEL 0 FOR 80.0;
+		LEVEL 1 FOR 171.469;
+		LEVEL 0 FOR 99.065;
+	}
+}
+
+TRANSITION_LIST("saldo_dinheiro[4]")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 729.219;
+		LEVEL 1 FOR 171.449;
+		LEVEL 0 FOR 99.332;
+	}
+}
+
+TRANSITION_LIST("saldo_dinheiro[3]")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 649.929;
+		LEVEL 1 FOR 251.497;
+		LEVEL 0 FOR 98.574;
+	}
+}
+
+TRANSITION_LIST("saldo_dinheiro[2]")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 570.152;
+		LEVEL 1 FOR 80.0;
+		LEVEL 0 FOR 349.848;
+	}
+}
+
+TRANSITION_LIST("saldo_dinheiro[1]")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 729.02;
+		LEVEL 1 FOR 171.491;
+		LEVEL 0 FOR 99.489;
+	}
+}
+
+TRANSITION_LIST("saldo_dinheiro[0]")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 1000.0;
+	}
+}
+
+TRANSITION_LIST("confirmar_moeda")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 1 FOR 560.0;
+		LEVEL 0 FOR 10.0;
+		LEVEL 1 FOR 70.0;
+		LEVEL 0 FOR 10.0;
+		LEVEL 1 FOR 70.0;
+		LEVEL 0 FOR 10.0;
+		LEVEL 1 FOR 270.0;
+	}
+}
+
+TRANSITION_LIST("valor_salgado[9]")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 1000.0;
+	}
+}
+
+TRANSITION_LIST("valor_salgado[8]")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 198.116;
+		LEVEL 1 FOR 40.0;
+		LEVEL 0 FOR 761.884;
+	}
+}
+
+TRANSITION_LIST("valor_salgado[7]")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 77.837;
+		LEVEL 1 FOR 80.0;
+		LEVEL 0 FOR 80.0;
+		LEVEL 1 FOR 762.163;
+	}
+}
+
+TRANSITION_LIST("valor_salgado[6]")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 78.371;
+		LEVEL 1 FOR 40.0;
+		LEVEL 0 FOR 40.0;
+		LEVEL 1 FOR 841.629;
+	}
+}
+
+TRANSITION_LIST("valor_salgado[5]")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 77.27;
+		LEVEL 1 FOR 40.0;
+		LEVEL 0 FOR 160.0;
+		LEVEL 1 FOR 722.73;
+	}
+}
+
+TRANSITION_LIST("valor_salgado[4]")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 77.242;
+		LEVEL 1 FOR 80.0;
+		LEVEL 0 FOR 40.0;
+		LEVEL 1 FOR 40.0;
+		LEVEL 0 FOR 40.0;
+		LEVEL 1 FOR 722.758;
+	}
+}
+
+TRANSITION_LIST("valor_salgado[3]")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 78.371;
+		LEVEL 1 FOR 40.0;
+		LEVEL 0 FOR 40.0;
+		LEVEL 1 FOR 841.629;
+	}
+}
+
+TRANSITION_LIST("valor_salgado[2]")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 118.113;
+		LEVEL 1 FOR 40.0;
+		LEVEL 0 FOR 40.0;
+		LEVEL 1 FOR 40.0;
+		LEVEL 0 FOR 761.887;
+	}
+}
+
+TRANSITION_LIST("valor_salgado[1]")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 78.069;
+		LEVEL 1 FOR 160.0;
+		LEVEL 0 FOR 40.0;
+		LEVEL 1 FOR 721.931;
+	}
+}
+
+TRANSITION_LIST("valor_salgado[0]")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 158.132;
+		LEVEL 1 FOR 40.0;
+		LEVEL 0 FOR 801.868;
+	}
+}
+
+TRANSITION_LIST("display_dinheiro_centena[6]")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 18.043;
+		LEVEL 1 FOR 60.0;
+		LEVEL 0 FOR 40.0;
+		LEVEL 1 FOR 80.0;
+		LEVEL 0 FOR 240.0;
+		LEVEL 1 FOR 280.0;
+		LEVEL 0 FOR 40.0;
+		LEVEL 1 FOR 240.0;
+		LEVEL 0 FOR 1.957;
+	}
+}
+
+TRANSITION_LIST("display_dinheiro_centena[5]")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 18.021;
+		LEVEL 1 FOR 140.0;
+		LEVEL 0 FOR 40.0;
+		LEVEL 1 FOR 240.0;
+		LEVEL 0 FOR 180.0;
+		NODE
+		{
+			REPEAT = 2;
+			LEVEL 1 FOR 60.0;
+			LEVEL 0 FOR 20.0;
+		}
+		LEVEL 1 FOR 20.0;
+		LEVEL 0 FOR 120.0;
+		LEVEL 1 FOR 81.979;
+	}
+}
+
+TRANSITION_LIST("display_dinheiro_centena[4]")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 18.27;
+		LEVEL 1 FOR 60.0;
+		NODE
+		{
+			REPEAT = 2;
+			LEVEL 0 FOR 40.0;
+			LEVEL 1 FOR 40.0;
+		}
+		LEVEL 0 FOR 380.0;
+		LEVEL 1 FOR 60.0;
+		LEVEL 0 FOR 20.0;
+		LEVEL 1 FOR 20.0;
+		LEVEL 0 FOR 60.0;
+		LEVEL 1 FOR 20.0;
+		LEVEL 0 FOR 120.0;
+		LEVEL 1 FOR 80.0;
+		LEVEL 0 FOR 1.73;
+	}
+}
+
+TRANSITION_LIST("display_dinheiro_centena[3]")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 18.193;
+		LEVEL 1 FOR 60.0;
+		LEVEL 0 FOR 40.0;
+		LEVEL 1 FOR 40.0;
+		LEVEL 0 FOR 460.0;
+		LEVEL 1 FOR 60.0;
+		LEVEL 0 FOR 20.0;
+		LEVEL 1 FOR 20.0;
+		LEVEL 0 FOR 200.0;
+		LEVEL 1 FOR 80.0;
+		LEVEL 0 FOR 1.807;
+	}
+}
+
+TRANSITION_LIST("display_dinheiro_centena[2]")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 18.315;
+		LEVEL 1 FOR 100.0;
+		LEVEL 0 FOR 120.0;
+		LEVEL 1 FOR 200.0;
+		LEVEL 0 FOR 280.0;
+		LEVEL 1 FOR 40.0;
+		LEVEL 0 FOR 160.0;
+		LEVEL 1 FOR 81.685;
+	}
+}
+
+TRANSITION_LIST("display_dinheiro_centena[1]")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 18.637;
+		LEVEL 1 FOR 60.0;
+		LEVEL 0 FOR 620.0;
+		LEVEL 1 FOR 20.0;
+		LEVEL 0 FOR 200.0;
+		LEVEL 1 FOR 80.0;
+		LEVEL 0 FOR 1.363;
+	}
+}
+
+TRANSITION_LIST("display_dinheiro_centena[0]")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 18.599;
+		LEVEL 1 FOR 60.0;
+		LEVEL 0 FOR 40.0;
+		LEVEL 1 FOR 40.0;
+		LEVEL 0 FOR 480.0;
+		LEVEL 1 FOR 40.0;
+		LEVEL 0 FOR 240.0;
+		LEVEL 1 FOR 80.0;
+		LEVEL 0 FOR 1.401;
+	}
+}
+
+TRANSITION_LIST("display_dinheiro_dezena[6]")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 18.669;
+		LEVEL 1 FOR 60.0;
+		LEVEL 0 FOR 80.0;
+		LEVEL 1 FOR 40.0;
+		LEVEL 0 FOR 40.0;
+		LEVEL 1 FOR 40.0;
+		LEVEL 0 FOR 160.0;
+		LEVEL 1 FOR 340.0;
+		LEVEL 0 FOR 20.0;
+		LEVEL 1 FOR 200.0;
+		LEVEL 0 FOR 1.331;
+	}
+}
+
+TRANSITION_LIST("display_dinheiro_dezena[5]")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 17.691;
+		LEVEL 1 FOR 60.0;
+		LEVEL 0 FOR 80.0;
+		LEVEL 1 FOR 40.0;
+		LEVEL 0 FOR 720.0;
+		LEVEL 1 FOR 80.0;
+		LEVEL 0 FOR 2.309;
+	}
+}
+
+TRANSITION_LIST("display_dinheiro_dezena[4]")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 17.964;
+		LEVEL 1 FOR 220.0;
+		LEVEL 0 FOR 40.0;
+		LEVEL 1 FOR 160.0;
+		LEVEL 0 FOR 340.0;
+		LEVEL 1 FOR 20.0;
+		LEVEL 0 FOR 120.0;
+		LEVEL 1 FOR 82.036;
+	}
+}
+
+TRANSITION_LIST("display_dinheiro_dezena[3]")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 18.23;
+		LEVEL 1 FOR 60.0;
+		LEVEL 0 FOR 80.0;
+		LEVEL 1 FOR 40.0;
+		LEVEL 0 FOR 400.0;
+		LEVEL 1 FOR 20.0;
+		LEVEL 0 FOR 300.0;
+		LEVEL 1 FOR 80.0;
+		LEVEL 0 FOR 1.77;
+	}
+}
+
+TRANSITION_LIST("display_dinheiro_dezena[2]")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 18.209;
+		LEVEL 1 FOR 60.0;
+		LEVEL 0 FOR 840.0;
+		LEVEL 1 FOR 80.0;
+		LEVEL 0 FOR 1.791;
+	}
+}
+
+TRANSITION_LIST("display_dinheiro_dezena[1]")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 18.238;
+		LEVEL 1 FOR 140.0;
+		LEVEL 0 FOR 40.0;
+		LEVEL 1 FOR 40.0;
+		LEVEL 0 FOR 40.0;
+		LEVEL 1 FOR 160.0;
+		LEVEL 0 FOR 340.0;
+		LEVEL 1 FOR 20.0;
+		LEVEL 0 FOR 120.0;
+		LEVEL 1 FOR 81.762;
+	}
+}
+
+TRANSITION_LIST("display_dinheiro_dezena[0]")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 17.335;
+		LEVEL 1 FOR 60.0;
+		LEVEL 0 FOR 840.0;
+		LEVEL 1 FOR 80.0;
+		LEVEL 0 FOR 2.665;
+	}
+}
+
+TRANSITION_LIST("display_dinheiro_unidade[6]")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 18.266;
+		LEVEL 1 FOR 140.0;
+		LEVEL 0 FOR 40.0;
+		LEVEL 1 FOR 380.0;
+		NODE
+		{
+			REPEAT = 2;
+			LEVEL 0 FOR 20.0;
+			LEVEL 1 FOR 60.0;
+		}
+		LEVEL 0 FOR 20.0;
+		LEVEL 1 FOR 241.734;
+	}
+}
+
+TRANSITION_LIST("display_dinheiro_unidade[5]")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 18.198;
+		LEVEL 1 FOR 60.0;
+		LEVEL 0 FOR 660.0;
+		LEVEL 1 FOR 20.0;
+		LEVEL 0 FOR 160.0;
+		LEVEL 1 FOR 80.0;
+		LEVEL 0 FOR 1.802;
+	}
+}
+
+TRANSITION_LIST("display_dinheiro_unidade[4]")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 17.889;
+		LEVEL 1 FOR 60.0;
+		LEVEL 0 FOR 80.0;
+		LEVEL 1 FOR 40.0;
+		LEVEL 0 FOR 460.0;
+		LEVEL 1 FOR 20.0;
+		LEVEL 0 FOR 240.0;
+		LEVEL 1 FOR 80.0;
+		LEVEL 0 FOR 2.111;
+	}
+}
+
+TRANSITION_LIST("display_dinheiro_unidade[3]")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 18.17;
+		LEVEL 1 FOR 60.0;
+		LEVEL 0 FOR 840.0;
+		LEVEL 1 FOR 80.0;
+		LEVEL 0 FOR 1.83;
+	}
+}
+
+TRANSITION_LIST("display_dinheiro_unidade[2]")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 18.596;
+		LEVEL 1 FOR 60.0;
+		LEVEL 0 FOR 660.0;
+		LEVEL 1 FOR 20.0;
+		LEVEL 0 FOR 160.0;
+		LEVEL 1 FOR 80.0;
+		LEVEL 0 FOR 1.404;
+	}
+}
+
+TRANSITION_LIST("display_dinheiro_unidade[1]")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 18.256;
+		LEVEL 1 FOR 60.0;
+		LEVEL 0 FOR 80.0;
+		LEVEL 1 FOR 40.0;
+		LEVEL 0 FOR 380.0;
+		LEVEL 1 FOR 20.0;
+		LEVEL 0 FOR 320.0;
+		LEVEL 1 FOR 80.0;
+		LEVEL 0 FOR 1.744;
+	}
+}
+
+TRANSITION_LIST("display_dinheiro_unidade[0]")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 18.479;
+		LEVEL 1 FOR 60.0;
+		LEVEL 0 FOR 500.0;
+		LEVEL 1 FOR 20.0;
+		LEVEL 0 FOR 320.0;
+		LEVEL 1 FOR 80.0;
+		LEVEL 0 FOR 1.521;
+	}
+}
+
+TRANSITION_LIST("led_verde")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 19.534;
+		LEVEL 1 FOR 380.0;
+		LEVEL 0 FOR 40.0;
+		LEVEL 1 FOR 360.0;
+		LEVEL 0 FOR 120.0;
+		LEVEL 1 FOR 80.466;
+	}
+}
+
+TRANSITION_LIST("led_vermelho")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 19.627;
+		LEVEL 1 FOR 60.0;
+		LEVEL 0 FOR 800.0;
+		LEVEL 1 FOR 120.0;
+		LEVEL 0 FOR 0.373;
+	}
+}
+
+TRANSITION_LIST("reset")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 1 FOR 1000.0;
+	}
+}
+
+TRANSITION_LIST("liberar")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 820.0;
+		LEVEL 1 FOR 10.0;
+		LEVEL 0 FOR 170.0;
+	}
+}
+
+TRANSITION_LIST("salgado_selecionado[2]")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 184.187;
+		LEVEL 1 FOR 80.0;
+		LEVEL 0 FOR 735.813;
+	}
+}
+
+TRANSITION_LIST("salgado_selecionado[1]")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 104.187;
+		LEVEL 1 FOR 80.0;
+		LEVEL 0 FOR 815.813;
+	}
+}
+
+TRANSITION_LIST("salgado_selecionado[0]")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 104.187;
+		LEVEL 1 FOR 40.0;
+		LEVEL 0 FOR 40.0;
+		LEVEL 1 FOR 40.0;
+		LEVEL 0 FOR 775.813;
+	}
+}
+
+TRANSITION_LIST("troco[9]")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 1000.0;
+	}
+}
+
+TRANSITION_LIST("troco[8]")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 1000.0;
+	}
+}
+
+TRANSITION_LIST("troco[7]")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 1000.0;
+	}
+}
+
+TRANSITION_LIST("troco[6]")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 1000.0;
+	}
+}
+
+TRANSITION_LIST("troco[5]")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 1000.0;
+	}
+}
+
+TRANSITION_LIST("troco[4]")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 1000.0;
+	}
+}
+
+TRANSITION_LIST("troco[3]")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 1000.0;
+	}
+}
+
+TRANSITION_LIST("troco[2]")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 1000.0;
+	}
+}
+
+TRANSITION_LIST("troco[1]")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 1000.0;
+	}
+}
+
+TRANSITION_LIST("troco[0]")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 1000.0;
+	}
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "clk";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Binary;
+	TREE_INDEX = 0;
+	TREE_LEVEL = 0;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "reset";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Binary;
+	TREE_INDEX = 1;
+	TREE_LEVEL = 0;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "iniciar";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Binary;
+	TREE_INDEX = 2;
+	TREE_LEVEL = 0;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "liberar";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Binary;
+	TREE_INDEX = 3;
+	TREE_LEVEL = 0;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "contador";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Binary;
+	TREE_INDEX = 4;
+	TREE_LEVEL = 0;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "moedas";
+	EXPAND_STATUS = EXPANDED;
+	RADIX = Binary;
+	TREE_INDEX = 5;
+	TREE_LEVEL = 0;
+	CHILDREN = 6, 7;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "moedas[1]";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Binary;
+	TREE_INDEX = 6;
+	TREE_LEVEL = 1;
+	PARENT = 5;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "moedas[0]";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Binary;
+	TREE_INDEX = 7;
+	TREE_LEVEL = 1;
+	PARENT = 5;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "confirmar_salgado";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Binary;
+	TREE_INDEX = 8;
+	TREE_LEVEL = 0;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "confirmar_moeda";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Signed;
+	TREE_INDEX = 9;
+	TREE_LEVEL = 0;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "estado";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Binary;
+	TREE_INDEX = 10;
+	TREE_LEVEL = 0;
+	CHILDREN = 11, 12, 13;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "estado[2]";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Binary;
+	TREE_INDEX = 11;
+	TREE_LEVEL = 1;
+	PARENT = 10;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "estado[1]";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Binary;
+	TREE_INDEX = 12;
+	TREE_LEVEL = 1;
+	PARENT = 10;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "estado[0]";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Binary;
+	TREE_INDEX = 13;
+	TREE_LEVEL = 1;
+	PARENT = 10;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "saldo_dinheiro";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Unsigned;
+	TREE_INDEX = 14;
+	TREE_LEVEL = 0;
+	CHILDREN = 15, 16, 17, 18, 19, 20, 21, 22, 23, 24;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "saldo_dinheiro[9]";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Unsigned;
+	TREE_INDEX = 15;
+	TREE_LEVEL = 1;
+	PARENT = 14;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "saldo_dinheiro[8]";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Unsigned;
+	TREE_INDEX = 16;
+	TREE_LEVEL = 1;
+	PARENT = 14;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "saldo_dinheiro[7]";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Unsigned;
+	TREE_INDEX = 17;
+	TREE_LEVEL = 1;
+	PARENT = 14;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "saldo_dinheiro[6]";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Unsigned;
+	TREE_INDEX = 18;
+	TREE_LEVEL = 1;
+	PARENT = 14;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "saldo_dinheiro[5]";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Unsigned;
+	TREE_INDEX = 19;
+	TREE_LEVEL = 1;
+	PARENT = 14;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "saldo_dinheiro[4]";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Unsigned;
+	TREE_INDEX = 20;
+	TREE_LEVEL = 1;
+	PARENT = 14;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "saldo_dinheiro[3]";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Unsigned;
+	TREE_INDEX = 21;
+	TREE_LEVEL = 1;
+	PARENT = 14;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "saldo_dinheiro[2]";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Unsigned;
+	TREE_INDEX = 22;
+	TREE_LEVEL = 1;
+	PARENT = 14;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "saldo_dinheiro[1]";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Unsigned;
+	TREE_INDEX = 23;
+	TREE_LEVEL = 1;
+	PARENT = 14;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "saldo_dinheiro[0]";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Unsigned;
+	TREE_INDEX = 24;
+	TREE_LEVEL = 1;
+	PARENT = 14;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "troco";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Unsigned;
+	TREE_INDEX = 25;
+	TREE_LEVEL = 0;
+	CHILDREN = 26, 27, 28, 29, 30, 31, 32, 33, 34, 35;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "troco[9]";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Unsigned;
+	TREE_INDEX = 26;
+	TREE_LEVEL = 1;
+	PARENT = 25;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "troco[8]";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Unsigned;
+	TREE_INDEX = 27;
+	TREE_LEVEL = 1;
+	PARENT = 25;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "troco[7]";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Unsigned;
+	TREE_INDEX = 28;
+	TREE_LEVEL = 1;
+	PARENT = 25;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "troco[6]";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Unsigned;
+	TREE_INDEX = 29;
+	TREE_LEVEL = 1;
+	PARENT = 25;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "troco[5]";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Unsigned;
+	TREE_INDEX = 30;
+	TREE_LEVEL = 1;
+	PARENT = 25;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "troco[4]";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Unsigned;
+	TREE_INDEX = 31;
+	TREE_LEVEL = 1;
+	PARENT = 25;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "troco[3]";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Unsigned;
+	TREE_INDEX = 32;
+	TREE_LEVEL = 1;
+	PARENT = 25;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "troco[2]";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Unsigned;
+	TREE_INDEX = 33;
+	TREE_LEVEL = 1;
+	PARENT = 25;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "troco[1]";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Unsigned;
+	TREE_INDEX = 34;
+	TREE_LEVEL = 1;
+	PARENT = 25;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "troco[0]";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Unsigned;
+	TREE_INDEX = 35;
+	TREE_LEVEL = 1;
+	PARENT = 25;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "salgado_selecionado";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Unsigned;
+	TREE_INDEX = 36;
+	TREE_LEVEL = 0;
+	CHILDREN = 37, 38, 39;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "salgado_selecionado[2]";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Unsigned;
+	TREE_INDEX = 37;
+	TREE_LEVEL = 1;
+	PARENT = 36;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "salgado_selecionado[1]";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Unsigned;
+	TREE_INDEX = 38;
+	TREE_LEVEL = 1;
+	PARENT = 36;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "salgado_selecionado[0]";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Unsigned;
+	TREE_INDEX = 39;
+	TREE_LEVEL = 1;
+	PARENT = 36;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "valor_salgado";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Unsigned;
+	TREE_INDEX = 40;
+	TREE_LEVEL = 0;
+	CHILDREN = 41, 42, 43, 44, 45, 46, 47, 48, 49, 50;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "valor_salgado[9]";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Unsigned;
+	TREE_INDEX = 41;
+	TREE_LEVEL = 1;
+	PARENT = 40;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "valor_salgado[8]";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Unsigned;
+	TREE_INDEX = 42;
+	TREE_LEVEL = 1;
+	PARENT = 40;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "valor_salgado[7]";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Unsigned;
+	TREE_INDEX = 43;
+	TREE_LEVEL = 1;
+	PARENT = 40;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "valor_salgado[6]";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Unsigned;
+	TREE_INDEX = 44;
+	TREE_LEVEL = 1;
+	PARENT = 40;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "valor_salgado[5]";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Unsigned;
+	TREE_INDEX = 45;
+	TREE_LEVEL = 1;
+	PARENT = 40;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "valor_salgado[4]";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Unsigned;
+	TREE_INDEX = 46;
+	TREE_LEVEL = 1;
+	PARENT = 40;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "valor_salgado[3]";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Unsigned;
+	TREE_INDEX = 47;
+	TREE_LEVEL = 1;
+	PARENT = 40;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "valor_salgado[2]";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Unsigned;
+	TREE_INDEX = 48;
+	TREE_LEVEL = 1;
+	PARENT = 40;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "valor_salgado[1]";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Unsigned;
+	TREE_INDEX = 49;
+	TREE_LEVEL = 1;
+	PARENT = 40;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "valor_salgado[0]";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Unsigned;
+	TREE_INDEX = 50;
+	TREE_LEVEL = 1;
+	PARENT = 40;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "display_salgado";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Binary;
+	TREE_INDEX = 51;
+	TREE_LEVEL = 0;
+	CHILDREN = 52, 53, 54, 55, 56, 57, 58;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "display_salgado[6]";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Binary;
+	TREE_INDEX = 52;
+	TREE_LEVEL = 1;
+	PARENT = 51;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "display_salgado[5]";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Binary;
+	TREE_INDEX = 53;
+	TREE_LEVEL = 1;
+	PARENT = 51;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "display_salgado[4]";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Binary;
+	TREE_INDEX = 54;
+	TREE_LEVEL = 1;
+	PARENT = 51;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "display_salgado[3]";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Binary;
+	TREE_INDEX = 55;
+	TREE_LEVEL = 1;
+	PARENT = 51;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "display_salgado[2]";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Binary;
+	TREE_INDEX = 56;
+	TREE_LEVEL = 1;
+	PARENT = 51;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "display_salgado[1]";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Binary;
+	TREE_INDEX = 57;
+	TREE_LEVEL = 1;
+	PARENT = 51;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "display_salgado[0]";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Binary;
+	TREE_INDEX = 58;
+	TREE_LEVEL = 1;
+	PARENT = 51;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "display_dinheiro_centena";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Binary;
+	TREE_INDEX = 59;
+	TREE_LEVEL = 0;
+	CHILDREN = 60, 61, 62, 63, 64, 65, 66;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "display_dinheiro_centena[6]";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Binary;
+	TREE_INDEX = 60;
+	TREE_LEVEL = 1;
+	PARENT = 59;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "display_dinheiro_centena[5]";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Binary;
+	TREE_INDEX = 61;
+	TREE_LEVEL = 1;
+	PARENT = 59;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "display_dinheiro_centena[4]";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Binary;
+	TREE_INDEX = 62;
+	TREE_LEVEL = 1;
+	PARENT = 59;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "display_dinheiro_centena[3]";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Binary;
+	TREE_INDEX = 63;
+	TREE_LEVEL = 1;
+	PARENT = 59;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "display_dinheiro_centena[2]";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Binary;
+	TREE_INDEX = 64;
+	TREE_LEVEL = 1;
+	PARENT = 59;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "display_dinheiro_centena[1]";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Binary;
+	TREE_INDEX = 65;
+	TREE_LEVEL = 1;
+	PARENT = 59;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "display_dinheiro_centena[0]";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Binary;
+	TREE_INDEX = 66;
+	TREE_LEVEL = 1;
+	PARENT = 59;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "display_dinheiro_dezena";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Binary;
+	TREE_INDEX = 67;
+	TREE_LEVEL = 0;
+	CHILDREN = 68, 69, 70, 71, 72, 73, 74;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "display_dinheiro_dezena[6]";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Binary;
+	TREE_INDEX = 68;
+	TREE_LEVEL = 1;
+	PARENT = 67;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "display_dinheiro_dezena[5]";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Binary;
+	TREE_INDEX = 69;
+	TREE_LEVEL = 1;
+	PARENT = 67;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "display_dinheiro_dezena[4]";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Binary;
+	TREE_INDEX = 70;
+	TREE_LEVEL = 1;
+	PARENT = 67;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "display_dinheiro_dezena[3]";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Binary;
+	TREE_INDEX = 71;
+	TREE_LEVEL = 1;
+	PARENT = 67;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "display_dinheiro_dezena[2]";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Binary;
+	TREE_INDEX = 72;
+	TREE_LEVEL = 1;
+	PARENT = 67;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "display_dinheiro_dezena[1]";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Binary;
+	TREE_INDEX = 73;
+	TREE_LEVEL = 1;
+	PARENT = 67;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "display_dinheiro_dezena[0]";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Binary;
+	TREE_INDEX = 74;
+	TREE_LEVEL = 1;
+	PARENT = 67;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "display_dinheiro_unidade";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Binary;
+	TREE_INDEX = 75;
+	TREE_LEVEL = 0;
+	CHILDREN = 76, 77, 78, 79, 80, 81, 82;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "display_dinheiro_unidade[6]";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Binary;
+	TREE_INDEX = 76;
+	TREE_LEVEL = 1;
+	PARENT = 75;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "display_dinheiro_unidade[5]";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Binary;
+	TREE_INDEX = 77;
+	TREE_LEVEL = 1;
+	PARENT = 75;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "display_dinheiro_unidade[4]";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Binary;
+	TREE_INDEX = 78;
+	TREE_LEVEL = 1;
+	PARENT = 75;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "display_dinheiro_unidade[3]";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Binary;
+	TREE_INDEX = 79;
+	TREE_LEVEL = 1;
+	PARENT = 75;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "display_dinheiro_unidade[2]";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Binary;
+	TREE_INDEX = 80;
+	TREE_LEVEL = 1;
+	PARENT = 75;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "display_dinheiro_unidade[1]";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Binary;
+	TREE_INDEX = 81;
+	TREE_LEVEL = 1;
+	PARENT = 75;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "display_dinheiro_unidade[0]";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Binary;
+	TREE_INDEX = 82;
+	TREE_LEVEL = 1;
+	PARENT = 75;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "led_verde";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Binary;
+	TREE_INDEX = 83;
+	TREE_LEVEL = 0;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "led_vermelho";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Binary;
+	TREE_INDEX = 84;
+	TREE_LEVEL = 0;
+}
+
+TIME_BAR
+{
+	TIME = 14900;
+	MASTER = TRUE;
+}
+;
